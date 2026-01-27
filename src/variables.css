@@ -1,0 +1,12 @@
+:root{
+    --cor-fundo: #0b0f17;
+    --cor-painel: #111827;
+    --cor-texto: #e5e7eb;
+    --cor-suave: #9ca3af;
+
+    --cor-primaria: #60a5fa;
+    --cor-perigo: #ef4444;
+    --cor-borda: rgba(255, 255, 255, 0.12);
+
+    --raio: 14px;
+}

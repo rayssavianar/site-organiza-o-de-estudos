@@ -1,0 +1,52 @@
+body {
+    background-color: var(--cor-fundo);
+    color: var(--cor-texto);
+    font-family: system-ui, sans-serif;
+    padding: 24px;
+}
+
+.app {
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+.cabecalho {
+    margin-bottom: 16px;
+}
+
+.titulo {
+    font-size: 1.8rem;
+}   
+
+.subtitulo {
+    color: var(--cor-suave);
+}
+
+.painel {
+    background-color: var(--cor-painel);
+    border: 1px solid var(--cor-borda);
+    border-radius: var(--raio);
+    padding: 16px;
+}
+
+.form-tarefa {
+    display: flex;
+    gap: 8px;
+}
+
+.entrada {
+    flex: 1;
+    padding: 10px;
+    border: 1px solid var(--cor-borda);
+    border-radius: 8px;
+    background-color: transparent;
+    color: var(--cor-texto);
+}
+
+.botao {
+    padding: 10px 12px;
+    border-radius: 8px;
+    border: none;
+    cursor: pointer;
+}
+

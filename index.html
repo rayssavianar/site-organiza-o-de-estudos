@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="src/reset.css">
+    <link rel="stylesheet" href="src/style.css">
+    <link rel="stylesheet" href="src/variables.css">
+    <title>Clarity</title>
+</head>
+<body>
+    <main class="app">
+        <header class="cabecalho">
+            <h1 class="titulo">Organizador de tarefas</h1>
+            <p class="subtitulo">Adicione, conclua e remova</p>
+        </header>
+
+        <section class="painel">
+            <form class="form-tarefa" id="formTarefa" autocomplete="off">
+                <input 
+                    type="text" 
+                    id="entradaTarefa" 
+                    class="entrada" 
+                    placeholder="Digite uma tarefa"
+                    required
+                />
+                <button type="submit" class="botao botao-primario">Adicionar</button>
+            </form>
+
+            <div class="info">
+                <span id="contadorTarefas">0 tarefas</span>
+                <button type="button" id="botaoLimparConcluidas" class="botao botao-fanstama">Limpar concluídas</button>
+            </div>
+
+            <ul class="lista-de-tarefas" id="listaTarefas">
+                <!-- Tarefas serão adicionadas aqui dinamicamente 
+                 <li class="item-tarefa">
+                    <label class="check">
+                        <input type="checkbox" />
+                        <span class="texto-tarefa">Estudar JavaScript</span>
+                    </label>
+                    <button class="botao botao-perigo">Remover</button>
+                 </li> -->
+            </ul>
+
+            <p class="estado-vazio" id="estadoVazio">
+                Nenhuma tarefa ainda.
+            </p>
+        </section>
+    </main>
+
+    
+</body>
+</html>
