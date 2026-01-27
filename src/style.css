@@ -50,3 +50,50 @@ body {
     cursor: pointer;
 }
 
+.botao-primario{
+    background-color: var(--cor-primaria);
+    color: #000;
+}
+
+.botao-fanstama{
+    background-color: transparent;
+    color: var(--cor-suave);
+}
+
+.botao-perigo{
+    background-color: var(--cor-perigo);
+    color: #fff;
+}
+
+.info {
+    display: flex;
+    justify-content: space-between;
+    margin: 12px 0px;
+    color: var(--cor-suave);
+}
+
+.lista-tarefas {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.item-tarefa {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    border: 1px solid var(--cor-borda);
+    border-radius: 8px;
+}
+
+.item-tarefa-concluida .texto-tarefa{
+    text-decoration: line-through;
+    opacity: 0.6;
+}
+
+.estado-vazio {
+    margin-top: 12px;
+    text-align: center;
+    color: var(--cor-suave);
+}
