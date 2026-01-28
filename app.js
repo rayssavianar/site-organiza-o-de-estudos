@@ -1,7 +1,8 @@
 const formTarefa = document.getElementById('formTarefa');
 const entradaTarefa = document.getElementById('entradaTarefa');
 const listaTarefas = document.getElementById('listaTarefas');
-1
+const botaoLimpar = document.getElementById('botaoLimparConcluidas');
+
 
 formTarefa.addEventListener('submit', function (event) {
     event.preventDefault();
@@ -34,5 +35,19 @@ formTarefa.addEventListener('submit', function (event) {
 
     // criando ação concluida
 
+    const checkbox = document.createElement('input');
+    checkbox.type = 'checkbox';
 
-})
+    console.log(checkbox);
+
+    li.appendChild(checkbox);
+    li.appendChild(span);
+
+    checkbox.addEventListener('change', function (event) {
+        li.classList.toggle('concluida');
+    });
+
+});
+
+
+
