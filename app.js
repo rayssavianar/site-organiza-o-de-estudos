@@ -1,10 +1,7 @@
 const formTarefa = document.getElementById('formTarefa');
 const entradaTarefa = document.getElementById('entradaTarefa');
 const listaTarefas = document.getElementById('listaTarefas');
-
-entradaTarefa.addEventListener('input', (event) => {
-    console.log("Digitando:", event.target.value)
-})
+1
 
 formTarefa.addEventListener('submit', function (event) {
     event.preventDefault();
@@ -19,4 +16,23 @@ formTarefa.addEventListener('submit', function (event) {
 
     entradaTarefa.value = '';
     entradaTarefa.focus();
+
+    const li = document.createElement('li');
+    li.classList.add('item-tarefa');
+
+    // console.log('li criado:', li);
+
+    const span = document.createElement('span');
+    span.classList.add('texto-tarefa');
+    span.textContent = valorEntradaTarefa;
+
+    li.appendChild(span);
+
+    console.log('span adicionado ao li:', li);
+
+    listaTarefas.appendChild(li);
+
+    // criando ação concluida
+
+
 })
