@@ -49,5 +49,11 @@ formTarefa.addEventListener('submit', function (event) {
 
 });
 
+botaoLimpar.addEventListener('click', function (event) {
+    const tarefasConcluidas = document.querySelectorAll('.item-tarefa.concluida');
+    tarefasConcluidas.forEach(function (tarefa) {
+        listaTarefas.removeChild(tarefa);
+    });
 
+});
 
