@@ -19,4 +19,4 @@ formTarefa.addEventListener('submit', function (event) {
 
     entradaTarefa.value = '';
     entradaTarefa.focus();
-});
+})
