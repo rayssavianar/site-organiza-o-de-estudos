@@ -97,3 +97,10 @@ body {
     text-align: center;
     color: var(--cor-suave);
 }
+
+.credito {
+    margin-top: 24px;
+    text-align: center;
+    color: var(--cor-suave);
+    font-size: 0.9rem;
+}
