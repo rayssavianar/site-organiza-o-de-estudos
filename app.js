@@ -2,6 +2,15 @@ const formTarefa = document.getElementById('formTarefa');
 const entradaTarefa = document.getElementById('entradaTarefa');
 const listaTarefas = document.getElementById('listaTarefas');
 const botaoLimpar = document.getElementById('botaoLimparConcluidas');
+const estadoVazio = document.getElementById('estadoVazio');
+
+function atualizarEstadoVazio(){
+    if(listaTarefas.children.length === 0){
+        estadoVazio.style.display = 'block';
+    } else {
+        estadoVazio.style.display = 'none';
+    }
+}
 
 
 formTarefa.addEventListener('submit', function (event) {
@@ -32,6 +41,9 @@ formTarefa.addEventListener('submit', function (event) {
     console.log('span adicionado ao li:', li);
 
     listaTarefas.appendChild(li);
+
+    atualizarEstadoVazio();
+
 
     // criando ação concluida
 
