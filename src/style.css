@@ -37,6 +37,7 @@ body {
 .entrada {
     flex: 1;
     padding: 10px;
+    max-width: 100%;
     border: 1px solid var(--cor-borda);
     border-radius: 8px;
     background-color: transparent;
@@ -80,8 +81,10 @@ body {
 
 .item-tarefa {
     display: flex;
-    justify-content: space-between;
+    justify-content: flex-start;
+    gap: 10px;
     align-items: center;
+    margin-bottom: 10px;
     padding: 10px;
     border: 1px solid var(--cor-borda);
     border-radius: 8px;
@@ -91,6 +94,7 @@ body {
     text-decoration: line-through;
     opacity: 0.6;
 }
+
 
 .estado-vazio {
     margin-top: 12px;
