@@ -3,9 +3,12 @@ const entradaTarefa = document.getElementById('entradaTarefa');
 const listaTarefas = document.getElementById('listaTarefas');
 const botaoLimpar = document.getElementById('botaoLimparConcluidas');
 const estadoVazio = document.getElementById('estadoVazio');
+const contadorTarefas = document.getElementById('contadorTarefas');
 
+// Chave unica para persistir as tarefas no navegador.
 const CHAVE_TAREFAS = 'tarefas-organizador';
 
+// Mostra/esconde a mensagem quando a lista está vazia.
 function atualizarEstadoVazio() {
     if (listaTarefas.children.length === 0) {
         estadoVazio.style.display = 'block';
@@ -14,6 +17,13 @@ function atualizarEstadoVazio() {
     }
 }
 
+function atualizarContador(){
+    const quantidade = listaTarefas.children.length;
+    contadorTarefas.textContent = `${quantidade} tarefas`;
+}
+
+
+// Leva os itens da tela e salva tudo no localStorage.
 function salvarTarefas() {
     const tarefas = Array.from(listaTarefas.querySelectorAll('.item-tarefa')).map(function (item) {
         const texto = item.querySelector('.texto-tarefa')?.textContent || '';
@@ -24,6 +34,7 @@ function salvarTarefas() {
     localStorage.setItem(CHAVE_TAREFAS, JSON.stringify(tarefas));
 }
 
+// Cria um item visual de tarefa e conecta seus eventos.
 function criarItemTarefa(texto, concluida = false) {
     const li = document.createElement('li');
     li.classList.add('item-tarefa');
@@ -37,15 +48,18 @@ function criarItemTarefa(texto, concluida = false) {
     span.classList.add('texto-tarefa');
     span.textContent = texto;
 
+    // Marcar/desmarcar tarefa atualiza estilo e persistência.
     checkbox.addEventListener('change', function () {
         li.classList.toggle('item-tarefa-concluida', checkbox.checked);
         salvarTarefas();
     });
 
+    // Duplo clique ativa edição inline do texto.
     span.addEventListener('dblclick', function(){
         span.contentEditable = true;
     });
 
+    // Enter finaliza edi��o e salva novo conte�do.
     span.addEventListener('keydown', function(event){
         if(event.key === 'Enter'){
             event.preventDefault();
@@ -54,15 +68,12 @@ function criarItemTarefa(texto, concluida = false) {
         }
     });
 
-    const textoAtual = span.textContent.trim();
-
-    
-
     li.appendChild(checkbox);
     li.appendChild(span);
     listaTarefas.appendChild(li);
 }
 
+// Reidrata a lista com o que já estava salvo no navegador.
 function carregarTarefas() {
     const tarefasSalvas = localStorage.getItem(CHAVE_TAREFAS);
     if (!tarefasSalvas) {
@@ -79,10 +90,9 @@ function carregarTarefas() {
         console.error('Erro ao carregar tarefas:', erro);
         localStorage.removeItem(CHAVE_TAREFAS);
     }
-
-    atualizarEstadoVazio();
 }
 
+// Submissão do formulário adiciona nova tarefa válida.
 formTarefa.addEventListener('submit', function (event) {
     event.preventDefault();
     const valorEntradaTarefa = entradaTarefa.value.trim();
@@ -95,11 +105,13 @@ formTarefa.addEventListener('submit', function (event) {
     criarItemTarefa(valorEntradaTarefa);
     salvarTarefas();
     atualizarEstadoVazio();
+    atualizarContador()
 
     entradaTarefa.value = '';
     entradaTarefa.focus();
 });
 
+// Remove da lista apenas tarefas já concluidas.
 botaoLimpar.addEventListener('click', function () {
     const tarefasConcluidas = listaTarefas.querySelectorAll('.item-tarefa.item-tarefa-concluida');
     tarefasConcluidas.forEach(function (tarefa) {
@@ -108,6 +120,10 @@ botaoLimpar.addEventListener('click', function () {
 
     salvarTarefas();
     atualizarEstadoVazio();
+    atualizarContador()
 });
 
+// Inicializa a interface com dados persistidos.
 carregarTarefas();
+atualizarContador()
+

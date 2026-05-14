@@ -95,6 +95,13 @@ body {
     opacity: 0.6;
 }
 
+.texto-tarefa:focus {
+    outline: none;
+    background-color: var(--cor-fundo);
+    border-radius: 6px;
+    padding: 4px;
+}
+
 
 .estado-vazio {
     margin-top: 12px;
